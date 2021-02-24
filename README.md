@@ -8,7 +8,7 @@
 # Setup (perform once)
 
 ```sh
-git clone https://github.com/Mariyo/modelio-in-docker && cd docker-modelio && chmod +x run.sh
+git clone https://github.com/Mariyo/modelio-in-docker && cd modelio-in-docker && chmod +x run.sh
 ```
 
 # Running
