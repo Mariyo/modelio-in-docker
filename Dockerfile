@@ -6,7 +6,7 @@ ARG GROUP_ID=1000
 # System
 RUN apt-get update && \
     apt-get install -y wget && \
-    apt-get install -y openjdk-8-jdk openjdk-8-jre
+    apt-get install -y openjdk-11-jdk openjdk-11-jre
 
 RUN mkdir -p /home/developer && \
     if [ ${USER_ID:-0} -ne 0 ] && [ ${GROUP_ID:-0} -ne 0 ]; then \
