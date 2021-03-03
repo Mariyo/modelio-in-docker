@@ -18,5 +18,3 @@ Launch the `run.sh` script
 ```sh
 ./run.sh
 ```
-
-OpenJDK 8 is installed in `/usr/lib/jvm/java-8-openjdk-amd64` (for use in Java Designer module's parameters).

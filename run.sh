@@ -24,11 +24,15 @@ case "$OSTYPE" in
     ;;
 esac
 
+# zbuildujem lokalny image s HOST userom ako modelio user
+docker build --build-arg UID="$(id -u)" --build-arg GID="$(id -g)" -t modelio:4.1.0 .
+
 docker run \
     -it --rm \
     -e DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -v $(pwd)/workspace:/home/developer/modelio/workspace:z \
-    -v $(pwd)/.modelio:/home/developer/.modelio:z \
+    -v "$(pwd)"/workspace:/home/modelio/modelio/workspace:z \
+    -v "$(pwd)"/.modelio:/home/modelio/.modelio:z \
     --net=host --ipc=host \
-    mariyo/modelio:4.1.0
+    --user "$(id -u)":"$(id -g)" \
+    modelio:4.1.0
