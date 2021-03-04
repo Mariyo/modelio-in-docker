@@ -1,14 +1,13 @@
 FROM mariyo/modelio:4.1.0
 
-ARG UID=1000
-ARG GID=1000
+ARG UID=50000
+ARG GID=50000
 
-RUN mkdir -p /home/modelio && \
-    if [ ${UID:-0} -ne 0 ] && [ ${GID:-0} -ne 0 ]; then \
+RUN if [ ${UID:-0} -ne 0 ] && [ ${GID:-0} -ne 0 ]; then \
         groupadd -g ${GID} modelio && \
-        useradd -l -u ${UID} -g modelio modelio \
-    ;fi && \
-    chown ${UID}:${GID} -R /home/modelio
+        useradd -l -u ${UID} -g modelio modelio && \
+        chown ${UID}:${GID} -R /home/modelio \
+    ;fi
 
 USER modelio
 
