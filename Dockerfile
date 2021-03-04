@@ -1,4 +1,4 @@
-FROM mariyo/modelio:4.1.0
+FROM mariyo/modelio:4.1.0-v1
 
 ARG UID=50000
 ARG GID=50000
