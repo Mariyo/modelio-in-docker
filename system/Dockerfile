@@ -10,7 +10,8 @@ RUN mkdir -p /home/modelio && \
     tar -zxvf modelio.tar.gz -C /home/modelio/ && \
     rm -rf modelio.tar.gz
 
-RUN apt-get update && apt-get install -y openjdk-8-jdk openjdk-8-jre
+RUN apt-get update && apt-get install -y openjdk-14-jdk openjdk-14-jre
+RUN echo "deb http://cz.archive.ubuntu.com/ubuntu bionic main universe" >> /etc/apt/sources.list && apt-get update
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y -q libwebkitgtk-1.0-0
 
 ENV HOME=/home/modelio
-ENV SWT_WEBKIT2=1
